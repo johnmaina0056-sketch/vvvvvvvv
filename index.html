@@ -944,152 +944,217 @@ Thank you.`;
 <title>ROTO TANK COMPANY Sales Form</title>
 
 <style>
-/* General Reset */
+:root {
+  --bg: #0b0f14;
+  --card: #141a22;
+  --accent: #d4a017;
+  --accent-dark: #9c7a10;
+  --text: #f5f7fa;
+  --muted: #9aa4b2;
+}
+
+/* RESET */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Body */
+/* BODY */
 body {
-    background: #f0f2f5;
-    padding: 20px;
+  background: radial-gradient(circle at top, #111827, #0b0f14);
+  color: var(--text);
+  line-height: 1.7;
+  padding-top: 120px;
 }
 
-/* Container */
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(11,15,20,0.9), rgba(11,15,20,0.6));
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #fff, #cfcfcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: var(--muted);
+}
+
+/* SECTIONS */
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+section h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  display: block;
+  margin-top: 6px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* CONTAINER (FORM AREA FIXED) */
 .container {
-    max-width: 750px;
-    margin: auto;
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  max-width: 750px;
+  margin: auto;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* Header */
+/* FORM HEADER */
 .header {
-    background-color: #0a4a7a;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
+  background: linear-gradient(180deg, #141a22, #0f141b);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.header img {
-    max-width: 100px;
-    margin-bottom: 10px;
-}
-
-.header h1 {
-    margin: 5px 0;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.header p {
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-/* Form Area */
-.form-area {
-    padding: 30px 25px;
-}
-
-/* Sections */
+/* FORM SECTIONS */
 .section {
-    background: #f9fafc;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    border-left: 5px solid #1e88e5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: #0f141b;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--accent);
 }
 
-.section h2 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #0a4a7a;
-}
-
-/* Labels and Inputs */
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
-}
-
+/* INPUTS */
 input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    transition: all 0.3s;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0b0f14;
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #1e88e5;
-    box-shadow: 0 0 5px rgba(30,136,229,0.4);
-    outline: none;
+  border-color: var(--accent);
+  outline: none;
 }
 
-textarea {
-    resize: vertical;
-}
-
-/* Button */
+/* BUTTON */
 button {
-    width: 100%;
-    padding: 16px;
-    background: #25D366;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: 0.3s;
+  width: 100%;
+  padding: 14px;
+  background: #25D366;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 button:hover {
-    background: #1ebe5d;
+  background: #1ebe5d;
 }
 
-/* Note Section */
+/* NOTE BOX */
 .note {
-    background: #eef4ff;
-    padding: 20px;
-    border-radius: 8px;
-    font-size: 13px;
-    line-height: 1.6;
-    border-left: 5px solid #1e88e5;
-    margin-top: 20px;
+  background: rgba(20,26,34,0.9);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--muted);
+  border-left: 4px solid var(--accent);
 }
 
-.contact {
-    margin-top: 6px;
-    font-weight: 600;
-    color: #0a4a7a;
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
-/* Responsive */
-@media (max-width: 500px) {
-    .header h1 {
-        font-size: 22px;
-    }
-    .section {
-        padding: 18px;
-    }
-    .form-area {
-        padding: 20px;
-    }
+.gallery-item img {
+  width: 100%;
+  border-radius: 10px;
 }
+
+/* ORDER BUTTON */
+.order-btn {
+  display: block;
+  margin-top: 8px;
+  padding: 10px;
+  text-align: center;
+  background: #25D366;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+/* FLOATING BUTTONS */
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.floating-contact a {
+  display: block;
+  margin-top: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 55px;
+  color: white;
+}
+
+.whatsapp { background: #25D366; }
+.call { background: #0a84ff; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+}
+
 </style>
 </head>
 
